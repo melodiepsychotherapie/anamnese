@@ -1,0 +1,95 @@
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Fiche Anamnèse Patient</title><style>
+  :root{--dom:#C5CFB6;--dark:#46523A;--q:#F0EBDC;--a:#FFFEF2;--acc:#C8B48E;--alt:#E6F0DC;}
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{font-family:Arial,Helvetica,sans-serif;font-size:10pt;color:#000;background:#f5f3ee;padding:24px;}
+  .page{max-width:820px;margin:0 auto;background:#fff;padding:36px 42px 60px;box-shadow:0 2px 14px rgba(0,0,0,.08);}
+  .titleblock{display:flex;gap:0;margin-bottom:22px;border:1px solid var(--acc);}
+  .titleblock .left{flex:2;background:var(--dom);padding:16px 20px;}
+  .titleblock .right{flex:1;background:var(--a);padding:16px 20px;border-left:1px solid var(--acc);font-size:9.5pt;color:var(--dark);}
+  .titleblock h1{font-family:Georgia,serif;font-size:16pt;color:var(--dark);margin-bottom:4px;}
+  .titleblock .sub{font-family:Garamond,Georgia,serif;font-style:italic;font-size:10.5pt;color:var(--dark);}
+  .titleblock .right p{margin:4px 0;}
+  .section{background:var(--dom);border:1px solid var(--acc);padding:9px 16px;font-family:Georgia,serif;font-weight:bold;font-size:11.5pt;color:var(--dark);margin:22px 0 8px;}
+  .question{background:var(--q);border:1px solid var(--acc);padding:7px 16px;font-family:Garamond,Georgia,serif;font-style:italic;font-size:11pt;color:var(--dark);margin-top:8px;}
+  .answer{background:var(--a);border:1px solid var(--acc);border-top:none;min-height:64px;padding:8px 12px;font-size:10pt;outline:none;}
+  .answer.free{border-top:1px solid var(--acc);margin-top:8px;}
+  .answer:focus{box-shadow:inset 0 0 0 2px var(--dom);}
+  .note{font-family:Garamond,Georgia,serif;font-style:italic;color:var(--dark);font-size:10.5pt;margin:8px 2px;}
+  table{width:100%;border-collapse:collapse;margin-top:8px;}
+  td{border:1px solid var(--acc);padding:7px 12px;font-size:9.5pt;vertical-align:middle;}
+  td.lbl{background:var(--alt);font-weight:bold;color:var(--dark);width:26%;}
+  td.val{background:var(--a);}
+  td.val[contenteditable]{min-width:60px;}
+  td.val:focus{outline:none;box-shadow:inset 0 0 0 2px var(--dom);}
+  .checks{display:flex;gap:0;margin-top:8px;}
+  .checks label{flex:1;background:var(--a);border:1px solid var(--acc);padding:8px 12px;font-size:9.5pt;display:flex;align-items:center;gap:8px;cursor:pointer;}
+  .checks label:not(:first-child){border-left:none;}
+  .checks input{accent-color:var(--dark);width:15px;height:15px;flex-shrink:0;}
+  footer{margin-top:40px;text-align:center;font-family:'Courier New',monospace;font-size:7pt;color:#888;border-top:1px solid var(--acc);padding-top:8px;}
+  .toolbar{max-width:820px;margin:0 auto 14px;text-align:right;}
+  .toolbar button{background:var(--dark);color:#fff;border:none;padding:8px 18px;font-size:10pt;border-radius:4px;cursor:pointer;font-family:Georgia,serif;}
+  @media print{body{background:#fff;padding:0;}.page{box-shadow:none;padding:20px 10px;}.toolbar{display:none;}
+    .section,.question,td.lbl,.titleblock .left{-webkit-print-color-adjust:exact;print-color-adjust:exact;}}
+  </style></head><body>
+<div class="toolbar"><button onclick="exportWord()" style="margin-right:8px;">📄 Télécharger en Word</button><button onclick="window.print()">🖨️ Imprimer / PDF</button></div>
+<div class="page"><div class="titleblock"><div class="left"><h1>Fiche Anamnèse Patient</h1><div class="sub">Entretien Initial  ·  Document confidentiel</div></div><div class="right"><p>Date : _____ / _____ / _______</p><p>Thérapeute : Mélodie Constant</p></div></div><div class="section">👤&nbsp;&nbsp;Informations générales</div><table><tr><td class="lbl" style="width:22%">Nom &amp; Prénom</td><td class="val" contenteditable="true"></td><td class="lbl" style="width:22%">Âge</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl" style="width:22%">Profession</td><td class="val" contenteditable="true"></td><td class="lbl" style="width:22%">Statut civil</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl" style="width:22%">Téléphone</td><td class="val" contenteditable="true"></td><td class="lbl" style="width:22%">E-mail</td><td class="val" contenteditable="true"></td></tr></table><table><tr><td class="lbl">Adresse</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl">Nombre et âge des enfants</td><td class="val" contenteditable="true"></td></tr></table><div class="section">📋&nbsp;&nbsp;Contexte du rendez-vous</div><table><tr><td class="lbl" style="width:22%">Heure</td><td class="val" contenteditable="true"></td><td class="lbl" style="width:22%">Format</td><td class="val" contenteditable="true"></td></tr></table><table><tr><td class="lbl">À l’initiative de qui ?</td><td class="val" contenteditable="true"></td></tr></table><div class="question">Motif exprimé par le patient</div><div class="answer" contenteditable="true"></div><div class="section">🎯&nbsp;&nbsp;Recueil du besoin &amp; de la demande</div><div class="question">Que puis-je faire pour vous ?</div><div class="answer" contenteditable="true"></div><div class="question">Qu’attendez-vous de cette thérapie ?</div><div class="answer" contenteditable="true"></div><div class="question">Quel est votre objectif principal ?</div><div class="answer" contenteditable="true"></div><div class="section">🕐&nbsp;&nbsp;Historique du problème</div><div class="question">Quand le problème a-t-il commencé ? Comment s’est-il manifesté ?</div><div class="answer" contenteditable="true"></div><div class="question">Pourquoi consulter maintenant ?</div><div class="answer" contenteditable="true"></div><div class="section">🧭&nbsp;&nbsp;Positionnement du patient</div><p class="note">Posture observée :</p><div class="checks"><label><input type="checkbox"> Client — demandeur &amp; prêt à agir</label><label><input type="checkbox"> Plaignant — se plaint, mais pas prêt à agir</label></div><div class="checks"><label><input type="checkbox"> Visiteur — pas concerné, non impliqué</label><label><input type="checkbox"> Collaborateur caché — agit pour d’autres raisons</label></div><p class="note">Dans le système (familial, professionnel…) :</p><table><tr><td class="lbl" style="width:22%">Qui est concerné par le problème ?</td><td class="val" contenteditable="true"></td><td class="lbl" style="width:22%">Qui se plaint ?</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl" style="width:22%">Qui est prêt à s’impliquer ?</td><td class="val" contenteditable="true"></td><td class="lbl" style="width:22%"></td><td class="val" contenteditable="true"></td></tr></table><div class="section">⚡&nbsp;&nbsp;Problématique actuelle</div><div class="question">Difficultés ou défis rencontrés ?</div><div class="answer" contenteditable="true"></div><div class="question">Déclencheurs ou situations aggravantes ?</div><div class="answer" contenteditable="true"></div><div class="question">Solutions déjà tentées (thérapies, changements…) ? Qu’est-ce qui a fonctionné ou pas ?</div><div class="answer" contenteditable="true"></div><div class="section">✅&nbsp;&nbsp;Objectifs thérapeutiques</div><table><tr><td class="lbl">Objectif 1</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl">Objectif 2</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl">Objectif 3</td><td class="val" contenteditable="true"></td></tr></table><div class="section">✨&nbsp;&nbsp;Projection positive</div><p class="note">« Imaginez que tous vos tracas disparaissent pendant la nuit… »</p><div class="question">Quel serait l’impact sur votre vie ?</div><div class="answer" contenteditable="true"></div><div class="question">Et sur votre entourage ? Que ressentiriez-vous ?</div><div class="answer" contenteditable="true"></div><div class="section">📖&nbsp;&nbsp;Parcours de vie</div><table><tr><td class="lbl">Événements marquants — Enfance / Adolescence</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl">Expériences professionnelles importantes</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl">Relations affectives / sociales / familiales</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl">Épisodes de santé (psychique / physique)</td><td class="val" contenteditable="true"></td></tr><tr><td class="lbl">Autres expériences significatives</td><td class="val" contenteditable="true"></td></tr></table><div class="section">✍️&nbsp;&nbsp;Notes complémentaires</div><div class="answer free" contenteditable="true" style="min-height:140px"></div>
+<footer>© Cabinet de psychothérapie – Siret : 948 116 967 00019</footer>
+</div><script>
+(function(){
+  var C={dom:'#C5CFB6',dark:'#46523A',q:'#F0EBDC',a:'#FFFEF2',acc:'#C8B48E',alt:'#E6F0DC'};
+  function cellStyle(fill,extra){return 'border:1pt solid '+C.acc+';padding:5pt 9pt;background:'+fill+';vertical-align:middle;'+(extra||'');}
+  function tbl(inner){return '<table style="width:100%;border-collapse:collapse;margin-top:6pt;">'+inner+'</table>';}
+  function build(){
+    var out='';
+    var page=document.querySelector('.page');
+    var nodes=page.children;
+    for(var i=0;i<nodes.length;i++){
+      var n=nodes[i];
+      if(n.classList.contains('titleblock')){
+        var h1=n.querySelector('h1').textContent, sub=n.querySelector('.sub').textContent;
+        var right=Array.prototype.map.call(n.querySelectorAll('.right p'),function(p){return '<p style="margin:2pt 0;font-size:9pt;color:'+C.dark+';">'+p.textContent+'</p>';}).join('');
+        out+=tbl('<tr><td style="'+cellStyle(C.dom)+'width:65%;"><p style="font-family:Georgia,serif;font-size:15pt;font-weight:bold;color:'+C.dark+';margin:0;">'+h1+'</p><p style="font-family:Garamond,serif;font-style:italic;font-size:10pt;color:'+C.dark+';margin:2pt 0 0;">'+sub+'</p></td><td style="'+cellStyle(C.a)+'">'+right+'</td></tr>');
+      } else if(n.classList.contains('section')){
+        out+='<p style="margin-top:12pt;margin-bottom:0;"></p>'+tbl('<tr><td style="'+cellStyle(C.dom)+'"><span style="font-family:Georgia,serif;font-weight:bold;font-size:11pt;color:'+C.dark+';">'+n.textContent.trim()+'</span></td></tr>');
+      } else if(n.classList.contains('question')){
+        out+=tbl('<tr><td style="'+cellStyle(C.q)+'"><span style="font-family:Garamond,serif;font-style:italic;font-size:10.5pt;color:'+C.dark+';">'+n.textContent.trim()+'</span></td></tr>');
+      } else if(n.classList.contains('answer')){
+        var content=n.innerHTML.trim()||'<br><br><br>';
+        out+=tbl('<tr><td style="'+cellStyle(C.a,'font-size:10pt;')+'">'+content+'</td></tr>');
+      } else if(n.classList.contains('note')){
+        out+='<p style="font-family:Garamond,serif;font-style:italic;font-size:10pt;color:'+C.dark+';margin:6pt 0 2pt;">'+n.textContent.trim()+'</p>';
+      } else if(n.classList.contains('checks')){
+        var cells=Array.prototype.map.call(n.querySelectorAll('label'),function(l){
+          var mark=l.querySelector('input').checked?'\u2611':'\u2610';
+          return '<td style="'+cellStyle(C.a,'font-size:9pt;')+'">'+mark+'&nbsp; '+l.textContent.trim()+'</td>';
+        }).join('');
+        out+=tbl('<tr>'+cells+'</tr>');
+      } else if(n.tagName==='TABLE'){
+        var rows=Array.prototype.map.call(n.querySelectorAll('tr'),function(tr){
+          var tds=Array.prototype.map.call(tr.querySelectorAll('td'),function(td){
+            var isLbl=td.classList.contains('lbl');
+            var style=cellStyle(isLbl?C.alt:C.a,'font-size:9pt;'+(isLbl?'font-weight:bold;color:'+C.dark+';width:26%;':''));
+            return '<td style="'+style+'">'+(isLbl?td.textContent.trim():(td.innerHTML.trim()||'&nbsp;'))+'</td>';
+          }).join('');
+          return '<tr>'+tds+'</tr>';
+        }).join('');
+        out+=tbl(rows);
+      } else if(n.tagName==='FOOTER'){
+        out+='<p style="text-align:center;font-family:Courier New,monospace;font-size:7pt;color:#888888;margin-top:18pt;">'+n.textContent.trim()+'</p>';
+      }
+    }
+    return out;
+  }
+  window.exportWord=function(){
+    var html='<html xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns="http://www.w3.org/TR/REC-html40"><head><meta charset="utf-8"><title>Anamnese_Patient</title><xml><w:WordDocument><w:View>Print</w:View><w:Zoom>100</w:Zoom></w:WordDocument></xml><style>@page{size:A4;margin:2cm 1.8cm;} body{font-family:Arial,sans-serif;font-size:10pt;} table{mso-table-lspace:0;mso-table-rspace:0;}</style></head><body>'+build()+'</body></html>';
+    var blob=new Blob(['\ufeff',html],{type:'application/msword'});
+    var a=document.createElement('a');
+    var d=new Date(), ds=d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0');
+    a.href=URL.createObjectURL(blob);
+    a.download='Anamnese_Patient_'+ds+'.doc';
+    document.body.appendChild(a);a.click();document.body.removeChild(a);
+    setTimeout(function(){URL.revokeObjectURL(a.href);},2000);
+  };
+})();
+</script></body></html>
